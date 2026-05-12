@@ -16,7 +16,9 @@ Original Greetings
 Greetings Again
     [Documentation]    This test case proves that we can import variables from resource files.
     [Tags]    centos
+    [Setup]    Log    Test setup for "Greetings Again" test case.
     Print Your Name    ${ANOTHER_NAME_IN_RESOURCE}
+    [Teardown]    Log    Test teardown for "Greetings Again" test case.
 
 Greetings From Init
     [Documentation]    This test case proves that we can create global variables using initialization files.
