@@ -40,8 +40,8 @@ The start time of the execution should be mentioned at every test case:
     ==============================================================================
     Tests.01-Greetings.01-Greetings                                               
     ==============================================================================
-    Original Greetings :: This test case checks that the Print Your Na... 
+    Original Greetings :: This test case verifies that the Print Your ...
     Test execution started at: 20200608 16:58:16.692!
-    Original Greetings :: This test case checks that the Print Your Na... | PASS |
+    Original Greetings :: This test case verifies that the Print Your ... | PASS |
 
 You can check the generated `log.html` file to see how your test cases worked.

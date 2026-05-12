@@ -45,16 +45,13 @@ The output should look similar to the following:
     Greetings                                                             | PASS |
     ------------------------------------------------------------------------------
     Tests.01-Greetings.01-Greetings                                       | PASS |
-    1 critical test, 1 passed, 0 failed
-    1 test total, 1 passed, 0 failed
+    1 test, 1 passed, 0 failed
     ==============================================================================
     Tests.01-Greetings                                                    | PASS |
-    1 critical test, 1 passed, 0 failed
-    1 test total, 1 passed, 0 failed
+    1 test, 1 passed, 0 failed
     ==============================================================================
     Tests                                                                 | PASS |
-    1 critical test, 1 passed, 0 failed
-    1 test total, 1 passed, 0 failed
+    1 test, 1 passed, 0 failed
     ==============================================================================
     Output:  /tmp/robot_course/tests/output.xml
     Log:     /tmp/robot_course/tests/log.html
