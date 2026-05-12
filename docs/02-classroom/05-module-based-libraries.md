@@ -2,7 +2,7 @@
 
 ## Goal
 
-* Create a new module based library named `HelperLibrary` with a keyword named `Generate Random Number`. This keyword should return a random number between `0` and `100`.
+* Create a new module based library named `HelperLibrary` with a keyword named `Generate Random Number`. This keyword should return a random number between two specified numbers: `minimum` and `maximum`. Add a helper function named `validate_range` that raises a `ValueError` if `minimum` is greater than `maximum`, and make sure this helper is **not** exposed as a keyword.
 * Make sure that the `HelperLibrary` is available to each test case.
 * Create a new suite variable named `@{STUDENTS}` in the `02-Exams` suite and store some names in it.
 * Create a new test case named `Generate Exam Results` in the `02-Exams` suite that uses the `Generate Random Number` keyword for each student. Save the results to a file named `yet_another_results_file.txt` in the following format: `Jane Doe: 80%`.
@@ -15,6 +15,8 @@
 
     [Click here to learn more about creating test libraries](http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#creating-keywords).
 
+    In a module based library, every public function is exposed as a keyword by default. You can use the `@not_keyword` decorator from `robot.api.deco` to mark a function that should **not** be available as a keyword. Note that this differs from class based libraries decorated with `@library`, which disables automatic keyword discovery and requires `@keyword` on every method that should be exposed.
+
     You can define a test setup with the `[Setup]` setting in the Test Case table.
     [Click here to learn more about test setup and teardown functionality](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-setup-and-teardown).
 
@@ -22,7 +24,7 @@
     ``` python
     import random
 
-    from robot.api.deco import keyword
+    from robot.api.deco import keyword, not_keyword
 
 
     @keyword(tags=["random"])
@@ -34,7 +36,16 @@
         =>
         | ${random_number}= 87
         """
+        validate_range(minimum, maximum)
         return random.randint(minimum, maximum)
+
+
+    @not_keyword
+    def validate_range(minimum: int, maximum: int):
+        if minimum > maximum:
+            raise ValueError(
+                f"Minimum ({minimum}) must be less than or equal to maximum ({maximum})!"
+            )
     ```
 
 ??? success "Solution: `tests/02-classroom/02-exams.robot`"

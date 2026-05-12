@@ -1,6 +1,6 @@
 import random
 
-from robot.api.deco import keyword
+from robot.api.deco import keyword, not_keyword
 
 
 @keyword(tags=["random"])
@@ -12,4 +12,13 @@ def generate_random_number(minimum: int, maximum: int):
     =>
     | ${random_number}= 87
     """
+    validate_range(minimum, maximum)
     return random.randint(minimum, maximum)
+
+
+@not_keyword
+def validate_range(minimum: int, maximum: int):
+    if minimum > maximum:
+        raise ValueError(
+            f"Minimum ({minimum}) must be less than or equal to maximum ({maximum})!"
+        )
